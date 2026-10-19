@@ -1,0 +1,92 @@
+const http = require('http')
+const path = require('path')
+const fileName = 'bucycleUsers.txt'
+const fullpath = path.join(__dirname, '..', fileName)
+const fs = require('fs')
+
+const port = 5001
+
+const server = http.createServer((req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Обработка preflight запросов - ВАЖНО
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
+
+  if (req.method == 'POST') {
+    let dataFull = ''
+    req.on('data', (dataChunk) => {
+      dataFull = dataFull + dataChunk.toString()
+    })
+    req.on('end', () => {
+      try {
+        dataFull = JSON.parse(dataFull)
+      }
+      catch {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify('Ошибка на сервере - он не смог распарсить данные'));
+        return
+      }
+      const id = Math.trunc(Math.random() * 1000000)
+      dataFull.id = id
+      console.log('dataFull:', dataFull);
+      fs.appendFile(fullpath, JSON.stringify(dataFull) + '\n' + new Date().toISOString() + '\n' + '\n', (err) => {
+        if (err) {
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify('косяк на серваке- не смог записать в файл данные'));
+          return
+        }
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ 'твой измененный объект (он сохранен)': dataFull }));
+        return
+      })
+
+    })
+    req.on('error', err => {
+      console.error('Ошибка чтения запроса:', err);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Ошибка сервера' }));
+    });
+
+  }
+  else {
+    res.writeHead(405, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify('разрешены только post методы'));
+    return
+  }
+})
+
+server.listen(port, '0.0.0.0', () => {
+  console.log('==== сервер запущен :) ====');
+  console.log(`==== port  ${port}====`);
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

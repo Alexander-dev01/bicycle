@@ -1,0 +1,261 @@
+::selection {
+  color: rgb(79, 255, 79);
+  background-color: green;
+}
+
+body {
+  font-size: 24px;
+  font-family: 'Lato-Regular', sans-serif;
+  color: var(--color-text);
+  background-color: var(--background-color1);
+}
+
+button {
+  background-color: transparent;
+  color: var(--color-text);
+  background-color: var(--background-color-btn);
+  padding: var(--padding-btn-item);
+  border-radius: var(--border-radius);
+  font-size: 24px;
+  transition: all 0.3s;
+  font-family: 'Lato-Medium', sans-serif;
+
+}
+
+button:active {
+  background-color: var(--background-color-active);
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: var(--background-color-hover);
+}
+
+h1 {
+  font-size: 34px;
+  margin: 20px 0px 50px 0px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 34px;
+  text-align: center;
+
+}
+
+input, select {
+  color: var(--color-text-input);
+  padding: 20px;
+  background-color: var(--background-color1);
+  border-radius: var(--border-radius);
+  width: 50%;
+  font-size: 24px;
+}
+
+input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+option {
+  color: var(--color-text);
+}
+
+.global-section {
+  border-radius: var(--border-radius);
+  padding: 20px 50px;
+  margin-bottom: 50px;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-div {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  transition: 1s;
+}
+
+.logo img:hover {
+  transform: rotate(360deg);
+}
+
+
+.nav__list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.main {
+  background-color: var(--background-color2);
+}
+
+.welik-list {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+
+}
+
+.welik-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--padding-btn-item)*2);
+  gap: 15px;
+  background-color: var(--background-color3);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  transition: .3s;
+
+}
+
+.welik-item:hover {
+  transform: scale(1.03);
+}
+
+.welik-item:hover button {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255);
+}
+
+.welik-img {
+  width: 100%;
+  height: 400px;
+}
+
+.welik-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.welik-h2 {
+  font-family: 'Lato-Bold', sans-serif;
+}
+
+.welik-text {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  line-height: 35px;
+}
+
+.welik-text li::before {
+  content: '●';
+  margin-right: 10px;
+}
+
+.welik-price {
+  width: 100%;
+  text-align: end;
+}
+
+.welik-button {
+  background-color: rgb(154, 48, 253);
+}
+
+.footer {
+  background-color: var(--background-color2);
+}
+
+.footer-text {
+  text-align: center;
+}
+
+/* ================================= */
+.background__window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+}
+
+.window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--padding-btn-item)*2);
+  width:  600px;
+  height: 700px;
+  background-color: var(--background-color2);
+  border-radius: var(--border-radius);
+}
+
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-close:hover svg {
+  fill: azure;
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+/* =================================  contacts */
+
+.contacts-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--padding-btn-item)*2);
+  gap: 15px;
+  background-color: var(--background-color3);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+
+}

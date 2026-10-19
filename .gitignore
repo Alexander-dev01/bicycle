@@ -1,0 +1,18 @@
+#  Один файл
+# secret.txt
+
+# # Все .log файлы
+# *.log
+
+# # Папка целиком
+# node_modules/
+
+# # Файлы в папке
+# logs/
+# data/
+
+# # В корне проекта ТОЛЬКО
+# /config.php
+
+
+node_modules/
