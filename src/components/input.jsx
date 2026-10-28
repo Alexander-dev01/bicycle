@@ -12,6 +12,7 @@ const Input = (props) => {
         required
         placeholder={placeholder}
         value={pole[valueProp]}
+        maxLength={15}
         onInput={(event) => {
           const { value } = event.target
           setPole((prev) => ({ ...prev, [valueProp]: value }))

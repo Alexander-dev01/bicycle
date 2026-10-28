@@ -3,7 +3,8 @@ import { WeloContext } from "../../src/context/WeloContext"
 import Input from "./input"
 
 const Window = () => {
-  const { onClickGlobal, submitData, pole, setPole } = useContext(WeloContext)
+  const { onClickGlobal, submitData, pole, setPole, animBeauty, infoServer } =
+    useContext(WeloContext)
   return (
     <div className="background__window">
       <form
@@ -49,7 +50,13 @@ const Window = () => {
           <option value="prem">Премиум</option>
         </select>
 
-        <button type="submit">Отправить</button>
+        <div className="window-submit" ref={animBeauty}>
+          <button type="submit">Отправить</button>
+          <div className="loading">
+            <img src={infoServer.src} />
+            {infoServer.text}
+          </div>
+        </div>
       </form>
     </div>
   )

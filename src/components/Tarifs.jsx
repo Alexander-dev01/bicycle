@@ -1,9 +1,14 @@
 import Item from "./Item";
+import img1 from "./../../images/welik/welik1.jpg"
+import img2 from "./../../images/welik/welik2.jpg"
+import img3 from "./../../images/welik/welik3.jpg"
+import img4 from "./../../images/welik/welik4.jpg"
+
 
 const Tarifs = () => {
   const arrayTarifs = [
     {
-      img: "welik1",
+      img: img1,
       h2: "Эконом вариант",
       text: [
         "Нет корзинки",
@@ -13,7 +18,7 @@ const Tarifs = () => {
       price: "300",
     },
     {
-      img: "welik2",
+      img: img2,
       h2: "Базовый вариант",
       text: [
         "ЕСТЬ корзинка",
@@ -23,7 +28,7 @@ const Tarifs = () => {
       price: "400",
     },
     {
-      img: "welik3",
+      img: img3,
       h2: "Скорость",
       text: [
         "ЕСТЬ переключение скорости",
@@ -34,7 +39,7 @@ const Tarifs = () => {
       price: "500",
     },
     {
-      img: "welik4",
+      img:img4,
       h2: "Премиум",
       text: [
         "ЕСТЬ переключение скорости",

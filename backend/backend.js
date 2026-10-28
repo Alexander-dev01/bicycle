@@ -6,12 +6,20 @@ const fs = require('fs')
 
 const port = 5001
 
+const formatDateTime = (date = new Date()) => {
+  const pad = (value) => String(value).padStart(2, "0")
+
+  return (
+    `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()} ` +
+    `${pad(date.getHours())}:${pad(date.getMinutes())}`
+  )
+}
+
 const server = http.createServer((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Обработка preflight запросов - ВАЖНО
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
     res.end();
@@ -36,10 +44,10 @@ const server = http.createServer((req, res) => {
       const id = Math.trunc(Math.random() * 1000000)
       dataFull.id = id
       console.log('dataFull:', dataFull);
-      fs.appendFile(fullpath, JSON.stringify(dataFull) + '\n' + new Date().toISOString() + '\n' + '\n', (err) => {
+      fs.appendFile(fullpath, JSON.stringify(dataFull) + '\n' + formatDateTime() + '\n' + '\n', (err) => {
         if (err) {
           res.writeHead(500, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify('косяк на серваке- не смог записать в файл данные'));
+          res.end(JSON.stringify('Ошибка на сервере - он не смог записать в файл данные'));
           return
         }
         res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -57,7 +65,7 @@ const server = http.createServer((req, res) => {
   }
   else {
     res.writeHead(405, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify('разрешены только post методы'));
+    res.end(JSON.stringify('Тут разрешены только post методы дружочек-пирожочек'));
     return
   }
 })

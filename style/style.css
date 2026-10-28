@@ -194,7 +194,7 @@ option {
   text-align: center;
 }
 
-/* ================================= */
+/* ================================= window*/
 .background__window {
   display: flex;
   justify-content: center;
@@ -215,9 +215,33 @@ option {
   align-items: center;
   justify-content: space-between;
   padding: calc(var(--padding-btn-item)*2);
-  width:  600px;
+  width: 600px;
   height: 700px;
   background-color: var(--background-color2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.window-submit {
+  display: flex;
+  position: relative;
+  transition: all 0.3s;
+  right: 0px;
+}
+
+.window-submit-active {
+  right: 550px;
+}
+
+.loading {
+  position: absolute;
+  display: flex;
+  gap: 30px;
+  right: -630px;
+}
+
+.loading img {
+  width: 80px;
   border-radius: var(--border-radius);
 }
 
@@ -237,7 +261,7 @@ option {
   fill: azure;
 }
 
-.field{
+.field {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -258,4 +282,26 @@ option {
   overflow: hidden;
   border-radius: var(--border-radius);
 
+}
+
+/* =================================  glav */
+.glav {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  border-radius: var(--border-radius);
+  padding: calc(var(--padding-btn-item)*2);
+
+  height: 600px;
+  background-image: url('/images/glav.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.glav-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 100%;
+  text-shadow: 2px 1px 2px #000;
 }

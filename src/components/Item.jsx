@@ -8,7 +8,7 @@ const Item = (props) => {
   return (
     <li className="welik-item">
       <div className="welik-img">
-        <img src={`./images/${img}.jpg`} alt="welik" />
+        <img src={img} alt="welik" />
       </div>
       <h2 className="welik-h2">{h2}</h2>
       <ul className="welik-text">
