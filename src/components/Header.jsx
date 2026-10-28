@@ -8,9 +8,7 @@ const Header = () => {
   return (
     <header className="header global-section">
       <div className="logo">
-        <div className="logo-div">
           <img src={Logo} alt="" />
-        </div>
         Велопрокат Волгодонск
       </div>
       <ul className="nav__list">

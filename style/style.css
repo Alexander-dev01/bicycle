@@ -89,18 +89,10 @@ option {
   gap: 10px;
 }
 
-.logo-div {
-  display: flex;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
 .logo img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  border-radius: 50%;
   transition: 1s;
 }
 
@@ -155,13 +147,14 @@ option {
 
 .welik-img {
   width: 100%;
-  height: 400px;
+  height: 100%;
+  max-height: 400px;
 }
 
 .welik-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--border-radius);
 }
 
@@ -313,7 +306,7 @@ overflow: auto;
 
 @media (max-width: 1100px){
   body,h1,h2,input,select, button,p{
-    font-size:2.3rem;
+    font-size:1.3rem;
   }
 
 }
